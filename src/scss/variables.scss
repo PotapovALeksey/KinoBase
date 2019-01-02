@@ -1,3 +1,8 @@
+@function calculateRem($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
+
 $color-main-background: #77c1bb;
 
 $color-font-dark: #372c48;
