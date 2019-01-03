@@ -1,0 +1,14 @@
+.header {
+  height: 60px;
+  background-color: $color-main-background;
+  &-actions {
+    &__button-menu {
+      background-color: transparent;
+      font-size: 16px;
+      line-height: 1.2;
+      color: $color-font-dark;
+    }
+    &__icon-menu {
+    }
+  }
+}
