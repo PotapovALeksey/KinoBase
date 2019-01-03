@@ -1,14 +1,48 @@
 .header {
-  height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   background-color: $color-main-background;
+  padding: calculateRem(24);
+
   &-actions {
+    &__logo {
+      @include for-size(custom-size) {
+        display: none;
+      }
+    }
     &__button-menu {
       background-color: transparent;
-      font-size: 16px;
+      font-size: $font-size-medium;
       line-height: 1.2;
       color: $color-font-dark;
+      margin-right: calculateRem(28);
     }
     &__icon-menu {
+    }
+    &__logo-text {
+      font-size: $font-size-medium;
+      color: $color-font-dark;
+    }
+    &__logo-image {
+      vertical-align: bottom;
+    }
+  }
+
+  &-form {
+    border-bottom: $color-font-dark solid 1px;
+    &__button {
+      font-size: $font-size-medium;
+      line-height: 1.2;
+      color: $color-font-dark;
+      background-color: transparent;
+    }
+    &__input {
+      width: 150px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: $font-size-small3;
     }
   }
 }

@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./../src/fonts/css/fontello.css" />
     <title>KinoBase</title>
   </head>
@@ -24,9 +27,43 @@
         </a>
       </div>
       <form class="header-form ">
-        <button class="header-button"></button>
-        <input type="text" class="header-input" placeholder="Search" />
+        <button type="submit" class="btn header-form__button">
+          <i class="icon-search"></i>
+        </button>
+        <input type="text" class="header-form__input" placeholder="Search" />
       </form>
     </header>
+    <nav class="nav">
+      <ul class="list nav-list">
+        <li class="nav-list__item">
+          <a href="#" class="link nav-list__link" data-actions="link-film">Фильмы</a></li>
+        <li class="nav-list__item">
+          <a href="#" class="link nav-list__link" data-actions="link-serial">Сериалы</a></li>
+        <li class="nav-list__item">
+          <a href="#" class="link nav-list__link" data-actions="link-favorites">Избранные</a></li>
+      </ul>
+    </nav>
+    <main class="main"><div class="wrapper"></div></main>
+    <footer class="footer">
+      <div class="footer-actions">
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-facebook footer-actions__icon"></i
+        ></a>
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-youtube-play footer-actions__icon"></i
+        ></a>
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-gplus footer-actions__icon"></i
+        ></a>
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-instagram footer-actions__icon"></i
+        ></a>
+      </div>
+      <div class="footer-links">
+        <a href="#" class="link footer-links__link">Главная</a>
+        <a href="#" class="link footer-links__link">Контакты</a>
+        <a href="#" class="link footer-links__link">Правообладателям</a>
+      </div>
+    </footer>
   </body>
 </html>

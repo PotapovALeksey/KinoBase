@@ -1,0 +1,31 @@
+.nav {
+  background-color: $color-font-light;
+  &-list {
+    display: flex;
+    justify-content: center;
+    &__item {
+      &:hover {
+        background-color: $color-hover;
+        transition: all ease-out 0.3s;
+      }
+      &:hover .nav-list__link {
+        color: $color-font-white;
+        transition: all ease-out 0.3s;
+      }
+      //   color: $color-font-dark;
+      padding-top: calculateRem(15);
+      padding-bottom: calculateRem(15);
+      width: 120px;
+      text-align: center;
+    }
+    &__link {
+      text-transform: uppercase;
+      font-size: $font-size-small4;
+      color: #000;
+
+      @include for-size(custom-size) {
+        font-size: $font-size-small3;
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
 
 .icon-star:before { content: '\e800'; } /* '' */
 .icon-search:before { content: '\e801'; } /* '' */
+.icon-video:before { content: '\e802'; } /* '' */
+.icon-videocam:before { content: '\e803'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-gplus:before { content: '\f0d5'; } /* '' */

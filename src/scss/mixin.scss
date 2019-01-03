@@ -20,7 +20,7 @@
       @content;
     }
   } @else if $size == custom-size {
-    @media (min-width: 320px) and (max-width: 399px) {
+    @media (min-width: 319px) and (max-width: 449px) {
       @content;
     }
   }
