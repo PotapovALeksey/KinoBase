@@ -6,7 +6,7 @@
     text-align: center;
     margin-bottom: calculateRem(14);
     &__link {
-      font-size: $font-size-small4;
+      font-size: $font-size-small3;
       line-height: 1.2;
       color: $color-font-dark;
       border-radius: 50%;
@@ -27,7 +27,7 @@
   &-links {
     text-align: center;
     &__link {
-      font-size: $font-size-small4;
+      font-size: $font-size-small3;
       line-height: 1.2;
       color: $color-font-dark;
 

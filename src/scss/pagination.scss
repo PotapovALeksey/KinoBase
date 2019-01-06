@@ -1,0 +1,31 @@
+.pagination {
+  height: 40px;
+  display: inline-block;
+  padding: 0 20px;
+  border-radius: 25px;
+  background-color: $color-font-light;
+
+  &-wrap {
+    text-align: center;
+    padding-top: calculateRem(40);
+  }
+
+  &__link {
+    float: left;
+    padding: 0 15px;
+    font-size: 16px;
+    line-height: 40px;
+    color: $color-font-dark;
+
+    &:hover {
+      color: $color-font-white;
+      background-color: $color-hover;
+      transition: 400ms ease;
+    }
+  }
+}
+
+.current {
+  background-color: $color-hover;
+  color: $color-font-white;
+}

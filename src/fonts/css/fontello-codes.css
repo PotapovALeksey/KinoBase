@@ -3,6 +3,9 @@
 .icon-search:before { content: '\e801'; } /* '' */
 .icon-video:before { content: '\e802'; } /* '' */
 .icon-videocam:before { content: '\e803'; } /* '' */
+.icon-cancel:before { content: '\e804'; } /* '' */
+.icon-left-open:before { content: '\e805'; } /* '' */
+.icon-right-open:before { content: '\e806'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-gplus:before { content: '\f0d5'; } /* '' */

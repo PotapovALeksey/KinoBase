@@ -1,10 +1,10 @@
 @mixin for-size($size) {
   @if $size == phone-only {
-    @media (max-width: 599px) {
+    @media (max-width: 767px) {
       @content;
     }
   } @else if $size == tablet-portrait-up {
-    @media (min-width: 600px) and (max-width: 899px) {
+    @media (min-width: 768px) and (max-width: 899px) {
       @content;
     }
   } @else if $size == tablet-landscape-up {
@@ -20,8 +20,9 @@
       @content;
     }
   } @else if $size == custom-size {
-    @media (min-width: 319px) and (max-width: 449px) {
+    @media (min-width: 319px) and (max-width: 480px) {
       @content;
     }
   }
+
 }

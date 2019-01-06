@@ -1,5 +1,6 @@
 .nav {
   background-color: $color-font-light;
+  box-shadow: -2px 20px 15px -17px #161236;
   &-list {
     display: flex;
     justify-content: center;
@@ -12,7 +13,6 @@
         color: $color-font-white;
         transition: all ease-out 0.3s;
       }
-      //   color: $color-font-dark;
       padding-top: calculateRem(15);
       padding-bottom: calculateRem(15);
       width: 120px;
@@ -20,12 +20,16 @@
     }
     &__link {
       text-transform: uppercase;
-      font-size: $font-size-small4;
+      font-size: $font-size-small3;
       color: #000;
 
       @include for-size(custom-size) {
-        font-size: $font-size-small3;
+        font-size: $font-size-small2;
       }
     }
   }
+}
+.current .link {
+  background-color: $color-hover;
+  color: $color-font-white;
 }

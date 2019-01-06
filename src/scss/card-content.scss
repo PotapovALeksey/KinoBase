@@ -1,0 +1,113 @@
+.content {
+  color: $color-font-dark;
+  &-wrap {
+    @include for-size(phone-only) {
+      display: block;
+      margin-bottom: calculateRem(35);
+    }
+    margin-bottom: calculateRem(65);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__img-wrap {
+    width: 40%;
+    position: relative;
+
+    overflow: hidden;
+    margin-right: calculateRem(16);
+    @include for-size(phone-only) {
+      margin-bottom: calculateRem(18);
+      margin-right: 0;
+      width: 100%;
+      max-height: 600px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+  &__title-img {
+    display: none;
+    @include for-size(phone-only) {
+      display: block;
+      position: absolute;
+      left: 7%;
+      top: 10%;
+      font-size: $font-size-medium;
+      color: $color-font-white;
+    }
+  }
+
+  &__text-wrap {
+    @include for-size(phone-only) {
+      width: 100%;
+    }
+    width: 60%;
+  }
+
+  &__title {
+    @include for-size(phone-only) {
+      display: none;
+    }
+    display: block;
+    font-size: $font-size-medium;
+    margin-bottom: calculateRem(18);
+  }
+
+  &__list {
+    @include for-size(phone-only) {
+      display: none;
+    }
+    display: block;
+    margin-bottom: calculateRem(18);
+  }
+  &__item {
+    &:nth-child(2n + 1) {
+      background-color: $color-main-background;
+    }
+    line-height: 2;
+    font-size: $font-size-small2;
+    display: flex;
+
+    &-name {
+      flex-basis: 30%;
+      padding-left: calculateRem(17);
+    }
+    &-item-description {
+      flex-basis: 70%;
+    }
+  }
+
+  &__title-about {
+    font-size: $font-size-medium;
+    margin-bottom: calculateRem(10);
+  }
+  &__about {
+    font-size: $font-size-small3;
+  }
+
+  &__iframe {
+    width: 70%;
+    height: 400px;
+    @include for-size(phone-only) {
+      width: 90%;
+      height: 300px;
+    }
+
+    &-wrap {
+      text-align: center;
+    }
+
+    &-title {
+      text-align: left;
+      padding-left: calculateRem(20);
+      font-size: $font-size-medium;
+      margin-bottom: calculateRem(30);
+      @include for-size(phone-only) {
+        padding-left: 0;
+      }
+    }
+  }
+}

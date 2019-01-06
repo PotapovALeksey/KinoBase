@@ -1,0 +1,110 @@
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &-wrap {
+    padding: calculateRem(15);
+  }
+  &__item {
+    position: relative;
+    cursor: pointer;
+    height: 270px;
+    @include for-size(phone-only) {
+      flex-basis: 48%;
+      &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: calculateRem(30);
+      }
+    }
+    @include for-size(custom-size) {
+      flex-basis: 100%;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    @include for-size(tablet-portrait-up) {
+      flex-basis: 48%;
+      &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: calculateRem(30);
+      }
+    }
+
+    @include for-size(tablet-landscape-up) {
+      flex-basis: 23.5%;
+      &:not(:nth-last-child(-n + 4)) {
+        margin-bottom: calculateRem(30);
+      }
+    }
+
+    @include for-size(desktop-up) {
+      flex-basis: 18.5%;
+      &:not(:nth-last-child(-n + 5)) {
+        margin-bottom: calculateRem(30);
+      }
+    }
+
+    &:hover .cards-list__item-overlay {
+      opacity: 0.2;
+      transition: 0.2s linear;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    &-vote {
+      position: absolute;
+      background-color: $color-main-background;
+      width: 50px;
+      line-height: 1.6;
+      text-align: center;
+      font-size: $font-size-medium;
+      z-index: 25;
+    }
+
+    &-button {
+      outline: none;
+      z-index: 25;
+      background-color: transparent;
+      font-size: 30px;
+      color: $color-font-white;
+      line-height: 1.2;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &:hover {
+        color: $color-hover2;
+        
+      }
+    }
+
+    &-title {
+      position: absolute;
+      width: 100%;
+      bottom: 5%;
+      text-align: center;
+      color: $color-font-white;
+      font-size: $font-size-small3;
+      z-index: 25;
+    }
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.2s linear;
+      opacity: 0.6;
+      z-index: 24;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(253, 253, 253, 0.3) 0%,
+        #020202 100%
+      );
+      border-radius: inherit;
+    }
+  }
+}
