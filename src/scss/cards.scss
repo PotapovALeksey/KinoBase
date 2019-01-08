@@ -9,6 +9,7 @@
     position: relative;
     cursor: pointer;
     height: 270px;
+    overflow: hidden;
     @include for-size(phone-only) {
       flex-basis: 48%;
       &:not(:nth-last-child(-n + 2)) {
@@ -76,7 +77,6 @@
 
       &:hover {
         color: $color-hover2;
-        
       }
     }
 
