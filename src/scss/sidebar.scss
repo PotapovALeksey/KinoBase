@@ -11,7 +11,9 @@
     box-shadow: 10px 5px 19px -8px rgba(0, 0, 0, 0.75);
     width: 300px;
     height: 100vh;
+    background-color: #fff;
     transform: translateX(-300px);
+    transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
     &__img {
       height: 222px;
       margin-bottom: calculateRem(12);
@@ -32,23 +34,44 @@
     &__title {
       color: $color-font-light5;
       margin-left: calculateRem(44);
+      display: inline-block;
+      user-select: none;
+      cursor: pointer;
       &:not(:last-child) {
-        margin-bottom: calculateRem(18);
+        margin-bottom: calculateRem(20);
+      }
+      &:hover {
+        color: palevioletred;
       }
     }
 
     &__list {
+      display: none;
       color: $color-font-light5;
       padding-left: calculateRem(90);
       margin-bottom: calculateRem(18);
+      &-item {
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-bottom: calculateRem(8);
+        }
+
+        &:hover {
+          color: palevioletred;
+        }
+      }
     }
   }
 }
- .open {
+.open {
   display: block;
 }
 
 .sidebar-open {
-  transform: translateX(0);
   transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transform: translateX(0);
+}
+
+.hidden {
+  display: block;
 }

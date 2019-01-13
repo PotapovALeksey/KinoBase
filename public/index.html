@@ -15,7 +15,7 @@
     <header class="header">
       <div class="header-actions">
         <button class="btn header-actions__button-menu">
-          <i class="icon-menu header-actions__icon-menu"></i>
+          <i class="icon-menu header-actions__icon-menu js-header-actions__icon-menu"></i>
         </button>
         <a href="#" class="link header-actions__logo">
           <img
@@ -35,17 +35,17 @@
     </header>
     <nav class="nav">
       <ul class="list nav-list js-nav-list">
-        <li class="current nav-list__item nav-list__item">
+        <li class="current nav-list__item ">
           <a href="#" class="link nav-list__link js-nav-list__link" data-category="film" 
             >Фильмы</a
           >
         </li>
-        <li class="nav-list__item nav-list__item">
+        <li class="nav-list__item ">
           <a href="#" class="link nav-list__link js-nav-list__link" data-category="serial"
             >Сериалы</a
           >
         </li>
-        <li class="nav-list__item nav-list__item">
+        <li class="nav-list__item ">
           <a href="#" class="link nav-list__link js-nav-list__link" data-category="favorites"
             >Избранное</a
           >
@@ -56,7 +56,7 @@
       <div class="main-wrapper">
   
 
-        <div id="content" class="content">
+        <div id="content" class="content js-content">
           
         <!-- <div class="content__sliders">
             <button id="left" class="slider-actors__button-left">Left</button>
@@ -91,32 +91,32 @@
           </div>
         </div>
 
-      <div class="sidebar ">
-        <div class="sidebar-content sidebar-open">
+      <div class="sidebar js-sidebar ">
+        <div class="sidebar-content js-sidebar-content ">
           <img src="../src/img/logo-sidebar.jpg" alt="logotype" class="img sidebar-content__img" />
           <button class="btn sidebar-content__button">
-            <i class="icon-cancel"></i>
+            <i class="icon-cancel js-sidebar-content__icon-cancel"></i>
           </button>
-          <h2 class="sidebar-content__title">
+          <h2 class="sidebar-content__title" data-title='film'>
             <i class="icon-video"></i>
-            Фильмы</h3>
-            <ul class="list sidebar-content__list" data-category="film">
+            <span class="sidebar-content__title-text" >Фильмы</span> </h3>
+            <ul class="list sidebar-content__list" data-menu="film">
               <li class="sidebar-content__list-item">Сейчас в кино</li>
               <li class="sidebar-content__list-item">Скоро на экранах</li>
               <li class="sidebar-content__list-item">Лучшие в рейтинге</li>
             </ul>
-          <h2  class="sidebar-content__title">
+          <h2  class="sidebar-content__title" data-title='serial'>
             <i class="icon-videocam"></i>
-            Сериалы</h3>
-            <ul class="list sidebar-content__list" data-category="film">
+            <span class="sidebar-content__title-text" >Сериалы</span>
+            </h3>
+            <ul class="list sidebar-content__list" data-menu="serial">
                 <li class="sidebar-content__list-item">Сейчас в кино</li>
                 <li class="sidebar-content__list-item">Скоро на экранах</li>
                 <li class="sidebar-content__list-item">Лучшие в рейтинге</li>
               </ul>
-          <h2  class="sidebar-content__title">
+          <h2  class="sidebar-content__title" data-title='favorites'>
             <i class="icon-star"></i>
-            Избранное</h3>
-          
+            <span class="sidebar-content__title-text">Избранное</span></h3>
         </div>
       </div>
     </main>

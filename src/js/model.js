@@ -12,8 +12,7 @@ export default class Model {
     }&language=ru&page=${page}`;
 
     return axios(url).then(response => {
-      console.log(response.data.results);
-
+      
       return response.data.results;
     });
   }
@@ -24,9 +23,21 @@ export default class Model {
     }&language=ru&page=${page}`;
 
     return axios(url).then(response => {
-      console.log(response.data.results);
-
+     
       return response.data.results;
+    });
+  }
+
+  getDetailFilm(id) {
+    const url = `https://api.themoviedb.org/3/movie/297802?api_key=${
+      this.APIKEY
+    }&language=ru&id=${id}&append_to_response=videos,images;
+    `;
+
+    return axios(url).then(response => {
+      console.log(response);
+
+      return response;
     });
   }
 }

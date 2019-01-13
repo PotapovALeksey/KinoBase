@@ -11,7 +11,7 @@ const model = new Model();
 const view = new View();
 const controller = new Controller(model, view);
 
-console.log(controller);
+
 
 // const list = document.querySelector("#slider-actors");
 // const left = document.querySelector("#left");
