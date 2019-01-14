@@ -4,6 +4,7 @@ import axios from "axios";
 export default class Model {
   constructor() {
     this.APIKEY = "fe18199fa91ee3037cc04bdedf00704c";
+    this.localStorageFavorites = storage.get() || [];
   }
 
   getMovies({ category, type, page }) {
@@ -17,7 +18,6 @@ export default class Model {
     });
   }
 
-
   getDetailFilm(id) {
     const url = `https://api.themoviedb.org/3/movie/297802?api_key=${
       this.APIKEY
@@ -30,4 +30,19 @@ export default class Model {
       return response;
     });
   }
+
+  getFavoritesCards() {
+    this.localStorageFavorites = storage.get();
+  }
+
+  addFavoritesCard(card) {
+    const isValid = this.localStorageFavorites.some(el => el.id === card.id);
+
+    if (!isValid) {
+      this.localStorageFavorites = [card, ...this.localStorageFavorites];
+      storage.set(this.localStorageFavorites);
+    }
+  }
+
+  deleteFavoritesCard() {}
 }

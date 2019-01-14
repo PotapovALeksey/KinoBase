@@ -1,9 +1,11 @@
 import EventEmitter from "./event-emiter";
 import createCards from "./templates/cards.hbs";
+import * as storage from "./storage";
 
 export default class View extends EventEmitter {
   constructor() {
     super();
+    this.localStorageFavorites = storage.get() || [];
     this.content = document.querySelector("#content");
     this.filmLink = document.querySelector('[data-category="movie"]');
     this.serialLink = document.querySelector('[data-category="tv"]');
@@ -70,6 +72,10 @@ export default class View extends EventEmitter {
     this.menuSerialSidebar.addEventListener(
       "click",
       this.handleClickSidebarMenu.bind(this)
+    );
+    this.content.addEventListener(
+      "click",
+      this.handleClickFavorites.bind(this)
     );
   }
 
@@ -189,10 +195,29 @@ export default class View extends EventEmitter {
     }
   }
 
+  handleClickFavorites({ target }) {
+    if (!target.classList.contains("js-icon-star")) {
+      return;
+    }
+    const item = target.closest(".js-cards-list__item");
+    const button = item.querySelector(".cards-list__item-button");
+    const id = item.dataset.id;
+    const title = item.querySelector(".cards-list__item-title").textContent;
+    const img = item.querySelector(".cards-list__item-img").src;
+    const card = {
+      id,
+      title,
+      img
+    };
+    this.paintFavoritesBtn(button);
+    this.emit("addFavorites", card);
+  }
+
   createMarkupCards(data) {
     const markup = createCards(data);
 
     this.content.innerHTML = markup;
+    this.checkFavoritesCard(this.localStorageFavorites);
   }
 
   createCardFilm(data) {
@@ -215,6 +240,27 @@ export default class View extends EventEmitter {
     current = elements.find(element => element.dataset.category === category);
 
     current.parentNode.classList.add(className);
+  }
+
+  checkFavoritesCard(arr) {
+    if (!arr.length > 0) {
+      return;
+    }
+
+    const idArr = arr.map(el => el.id);
+
+    const items = [...document.querySelectorAll(".js-cards-list__item")];
+    const favoritesItems = items.filter(el => idArr.includes(el.dataset.id));
+
+    let button;
+    favoritesItems.forEach(el => {
+      button = el.querySelector(".cards-list__item-button");
+      this.paintFavoritesBtn(button);
+    });
+  }
+
+  paintFavoritesBtn(elements) {
+    elements.style.color = "#fa7305";
   }
 
   openSidebar() {

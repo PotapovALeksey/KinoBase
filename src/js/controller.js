@@ -9,6 +9,7 @@ export default class Controller {
     view.on("closeMenu", this.closeSidebar.bind(this));
     view.on("hideFilmMenu", this.toggleFilmMenu.bind(this));
     view.on("hideSerialMenu", this.toggleSerialMenu.bind(this));
+    view.on("addFavorites", this.addToFavorites.bind(this));
   }
 
   createCardsMovies(value) {
@@ -19,6 +20,10 @@ export default class Controller {
     this.model
       .getDetailFilm(value)
       .then(data => this.view.createCardFilm(data));
+  }
+
+  addToFavorites(card) {
+    this.model.addFavoritesCard(card);
   }
 
   openSideBar() {

@@ -3,11 +3,16 @@
         {{#each this}}
         <li class="cards-list__item js-cards-list__item" data-id={{id}}>
             <div class="cards-list__item-vote">{{vote_average}}</div>
-            <img class=" cards-list__item-img" src='https://image.tmdb.org/t/p/w300{{poster_path}}' >
-            <button class="btn cards-list__item-button">
-                <i class="icon-star cards-list__item-icon"></i>
+            <img class=" cards-list__item-img" src='https://image.tmdb.org/t/p/w300{{poster_path}}'>
+            <button class="btn cards-list__item-button ">
+                <i class="icon-star cards-list__item-icon js-icon-star"></i>
             </button>
+
+            {{#if title}}
             <h3 class="cards-list__item-title">{{title}}</h3>
+            {{else}}
+            <h3 class="cards-list__item-title">{{name}}</h3>
+            {{/ if }}
             <div class="cards-list__item-overlay js-cards-list__item-overlay"></div>
         </li>
         {{/each}}
