@@ -6,27 +6,17 @@ export default class Model {
     this.APIKEY = "fe18199fa91ee3037cc04bdedf00704c";
   }
 
-  getFilms(page) {
-    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${
+  getMovies({ category, type, page }) {
+    const url = `https://api.themoviedb.org/3/${category}/${type}?api_key=${
       this.APIKEY
     }&language=ru&page=${page}`;
 
     return axios(url).then(response => {
-      
+      console.log(response.data.results);
       return response.data.results;
     });
   }
 
-  getSerial(page) {
-    const url = `https://api.themoviedb.org/3/tv/on_the_air?api_key=${
-      this.APIKEY
-    }&language=ru&page=${page}`;
-
-    return axios(url).then(response => {
-     
-      return response.data.results;
-    });
-  }
 
   getDetailFilm(id) {
     const url = `https://api.themoviedb.org/3/movie/297802?api_key=${

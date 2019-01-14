@@ -5,8 +5,8 @@ export default class View extends EventEmitter {
   constructor() {
     super();
     this.content = document.querySelector("#content");
-    this.filmLink = document.querySelector('[data-category="film"]');
-    this.serialLink = document.querySelector('[data-category="serial"]');
+    this.filmLink = document.querySelector('[data-category="movie"]');
+    this.serialLink = document.querySelector('[data-category="tv"]');
     this.pagination = document.querySelector(".js-pagination");
     this.paginationLinks = [
       ...document.querySelectorAll(".js-pagination__link")
@@ -27,6 +27,8 @@ export default class View extends EventEmitter {
     this.menuFilmSidebar = document.querySelector('[data-menu="film"]');
     this.menuSerialSidebar = document.querySelector('[data-menu="serial"]');
     this.page = 1;
+    this.category = "movie";
+    this.type = "now_playing";
 
     document.addEventListener(
       "DOMContentLoaded",
@@ -60,30 +62,57 @@ export default class View extends EventEmitter {
       "click",
       this.handleClickTitleSidebar.bind(this)
     );
+
+    this.menuFilmSidebar.addEventListener(
+      "click",
+      this.handleClickSidebarMenu.bind(this)
+    );
+    this.menuSerialSidebar.addEventListener(
+      "click",
+      this.handleClickSidebarMenu.bind(this)
+    );
   }
 
   handleLoadFilm() {
-    this.emit("loadContent", this.page);
+    const options = {
+      category: this.category,
+      type: this.type,
+      page: this.page
+    };
+    this.emit("loadMovies", options);
   }
 
   handleClickFilm({ target }) {
     this.page = 1;
-    const category = target.dataset.category;
 
-    this.changeColorLinkNav(this.navLinks, "current", category);
+    this.category = target.dataset.category;
+    this.type = target.dataset.type;
+    const options = {
+      category: this.category,
+      type: this.type,
+      page: this.page
+    };
+
+    this.changeColorLinkNav(this.navLinks, "current", this.category);
     this.changeColorLinkPag(this.paginationLinks, "current", Number(this.page));
 
-    this.emit("loadFilm", this.page);
+    this.emit("loadMovies", options);
   }
 
   handleClickSerial({ target }) {
     this.page = 1;
-    const category = target.dataset.category;
+    this.category = target.dataset.category;
+    this.type = target.dataset.type;
+    const options = {
+      category: this.category,
+      type: this.type,
+      page: this.page
+    };
 
-    this.changeColorLinkNav(this.navLinks, "current", category);
-    this.changeColorLinkPag(this.paginationLinks, "current", Number(this.page));
+    this.changeColorLinkNav(this.navLinks, "current", this.category);
+    this.changeColorLinkPag(this.paginationLinks, "current", this.page);
 
-    this.emit("loadSerial", this.page);
+    this.emit("loadMovies", options);
   }
 
   handleClickPagination({ target }) {
@@ -94,15 +123,33 @@ export default class View extends EventEmitter {
     this.page = target.textContent;
     this.changeColorLinkPag(this.paginationLinks, "current", Number(this.page));
 
-    const isFilm = this.filmLink.parentNode.classList.contains("current");
-    const isSerial = this.serialLink.parentNode.classList.contains("current");
+    const options = {
+      category: this.category,
+      type: this.type,
+      page: this.page
+    };
 
-    if (isFilm) {
-      this.emit("loadFilm", this.page);
+    this.emit("loadMovies", options);
+  }
+
+  handleClickSidebarMenu({ target }) {
+    if (!(target.nodeName === "LI")) {
+      return;
     }
-    if (isSerial) {
-      this.emit("loadSerial", this.page);
-    }
+    this.page = 1;
+    this.category = target.dataset.category;
+    this.type = target.dataset.type;
+
+    this.changeColorLinkNav(this.navLinks, "current", this.category);
+    this.changeColorLinkPag(this.paginationLinks, "current", this.page);
+
+    const options = {
+      category: this.category,
+      type: this.type,
+      page: this.page
+    };
+
+    this.emit("loadMovies", options);
   }
 
   handleClickCard({ target }) {

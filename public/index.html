@@ -36,12 +36,12 @@
     <nav class="nav">
       <ul class="list nav-list js-nav-list">
         <li class="current nav-list__item ">
-          <a href="#" class="link nav-list__link js-nav-list__link" data-category="film" 
+          <a href="#" class="link nav-list__link js-nav-list__link" data-category="movie" data-type='now_playing'
             >Фильмы</a
           >
         </li>
         <li class="nav-list__item ">
-          <a href="#" class="link nav-list__link js-nav-list__link" data-category="serial"
+          <a href="#" class="link nav-list__link js-nav-list__link" data-category="tv" data-type="on_the_air"
             >Сериалы</a
           >
         </li>
@@ -101,18 +101,20 @@
             <i class="icon-video"></i>
             <span class="sidebar-content__title-text" >Фильмы</span> </h3>
             <ul class="list sidebar-content__list" data-menu="film">
-              <li class="sidebar-content__list-item">Сейчас в кино</li>
-              <li class="sidebar-content__list-item">Скоро на экранах</li>
-              <li class="sidebar-content__list-item">Лучшие в рейтинге</li>
+              <li class="sidebar-content__list-item" data-category="movie" data-type='now_playing'>Сейчас в кино</li>
+              <li class="sidebar-content__list-item" data-category="movie"
+              data-type='upcoming'>Скоро на экранах</li>
+              <li class="sidebar-content__list-item" data-category="movie"
+              data-type='top_rated'>Лучшие в рейтинге</li>
             </ul>
           <h2  class="sidebar-content__title" data-title='serial'>
             <i class="icon-videocam"></i>
             <span class="sidebar-content__title-text" >Сериалы</span>
             </h3>
             <ul class="list sidebar-content__list" data-menu="serial">
-                <li class="sidebar-content__list-item">Сейчас в кино</li>
-                <li class="sidebar-content__list-item">Скоро на экранах</li>
-                <li class="sidebar-content__list-item">Лучшие в рейтинге</li>
+                <li class="sidebar-content__list-item" data-category="tv" data-type='on_the_air'>Сейчас на экранах</li>
+                <li class="sidebar-content__list-item" data-category="tv" data-type='popular'>Популярные</li>
+                <li class="sidebar-content__list-item" data-category="tv" data-type='top_rated'>Лучшие в рейтинге</li>
               </ul>
           <h2  class="sidebar-content__title" data-title='favorites'>
             <i class="icon-star"></i>

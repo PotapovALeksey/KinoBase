@@ -3,9 +3,7 @@ export default class Controller {
     this.model = model;
     this.view = view;
 
-    view.on("loadContent", this.createCardsFilm.bind(this));
-    view.on("loadFilm", this.createCardsFilm.bind(this));
-    view.on("loadSerial", this.createCardsSerial.bind(this));
+    view.on("loadMovies", this.createCardsMovies.bind(this));
     view.on("loadDetailFilm", this.createFilmDetail.bind(this));
     view.on("openMenu", this.openSideBar.bind(this));
     view.on("closeMenu", this.closeSidebar.bind(this));
@@ -13,11 +11,8 @@ export default class Controller {
     view.on("hideSerialMenu", this.toggleSerialMenu.bind(this));
   }
 
-  createCardsFilm(value) {
-    this.model.getFilms(value).then(data => this.view.createMarkupCards(data));
-  }
-  createCardsSerial(value) {
-    this.model.getSerial(value).then(data => this.view.createMarkupCards(data));
+  createCardsMovies(value) {
+    this.model.getMovies(value).then(data => this.view.createMarkupCards(data));
   }
 
   createFilmDetail(value) {
