@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../src/fonts/css/fontello.css" />
+    <title>KinoBase</title>
+  <link href="styles.css?e9532d00b37c5386b057" rel="stylesheet"></head>
+  <body>
+    <header class="header">
+      <div class="header-actions">
+        <button class="btn header-actions__button-menu">
+          <i class="icon-menu header-actions__icon-menu js-header-actions__icon-menu"></i>
+        </button>
+        <a href="#" class="link header-actions__logo">
+          <img
+            src="../src/img/logo.png"
+            alt="logotype"
+            class="header-actions__logo-image"
+          />
+          <span class="header-actions__logo-text">Moogle</span>
+        </a>
+      </div>
+      <form class="header-form">
+        <button type="submit" class="btn header-form__button">
+          <i class="icon-search"></i>
+        </button>
+        <input type="text" class="header-form__input" placeholder="Search" />
+      </form>
+    </header>
+    <nav class="nav">
+      <ul class="list nav-list js-nav-list">
+        <li class="current nav-list__item ">
+          <a href="#" class="link nav-list__link js-nav-list__link" data-category="movie" data-type='now_playing'
+            >Фильмы</a
+          >
+        </li>
+        <li class="nav-list__item ">
+          <a href="#" class="link nav-list__link js-nav-list__link" data-category="tv" data-type="on_the_air"
+            >Сериалы</a
+          >
+        </li>
+        <li class="nav-list__item ">
+          <a href="#" class="link nav-list__link js-nav-list__link" data-category="favorite"
+            >Избранное</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main class="main">
+      <div class="main-wrapper">
+  
+
+        <div id="content" class="content js-content">
+          
+        <!-- <div class="content__sliders">
+            <button id="left" class="slider-actors__button-left">Left</button>
+            <button id="right" class="slider-actors__button-right">Right</button>
+          <div class="slider-actors">
+             
+            <ul class="list slider-list" id="slider-actors">
+              
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_2-Ig_3377046.png" alt=""></li>
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_21-Gmail_3377042.png" alt=""></li>
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_logo_brand_brands_logos_adobe_photoshop_2993707.png" alt=""></li>
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_logo_brand_brands_logos_chrome_2993698.png" alt=""></li>
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_logo_brand_brands_logos_maps_google_2993681.png" alt=""></li>
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_logo_brand_brands_logos_microsoft_windows_2993661.png" alt=""></li>
+              <li class="slider-list__item"><img class="slider-list__img" src="../src/img/slide/iconfinder_logo_brand_brands_logos_total_commander_2993669.png" alt=""></li>
+            </ul>
+          </div>
+          <div class="content__slider-frames"></div>
+        </div>  -->
+    
+       </div>
+       
+          <div class="pagination js-pagination">
+            <a href="#" class="link pagination__link js-pagination__link current">1</a>
+            <a href="#" class="link pagination__link js-pagination__link">2</a>
+            <a href="#" class="link pagination__link js-pagination__link">3</a>
+            <a href="#" class="link pagination__link js-pagination__link">4</a>
+            <a href="#" class="link pagination__link js-pagination__link">5</a>
+            <a href="#" class="link pagination__link js-pagination__link">6</a>
+            <a href="#" class="link pagination__link js-pagination__link">7</a>
+            <a href="#" class="link pagination__link js-pagination__link">8</a>
+          </div>
+     
+
+      <div class="sidebar js-sidebar ">
+        <div class="sidebar-content js-sidebar-content ">
+          <img src="../src/img/logo-sidebar.jpg" alt="logotype" class="img sidebar-content__img" />
+          <button class="btn sidebar-content__button">
+            <i class="icon-cancel js-sidebar-content__icon-cancel"></i>
+          </button>
+          <h2 class="sidebar-content__title" data-title='film'>
+            <i class="icon-video"></i>
+            <span class="sidebar-content__title-text" >Фильмы</span> </h3>
+            <ul class="list sidebar-content__list" data-menu="film">
+              <li class="sidebar-content__list-item" data-category="movie" data-type='now_playing'>Сейчас в кино</li>
+              <li class="sidebar-content__list-item" data-category="movie"
+              data-type='upcoming'>Скоро на экранах</li>
+              <li class="sidebar-content__list-item" data-category="movie"
+              data-type='top_rated'>Лучшие в рейтинге</li>
+            </ul>
+          <h2  class="sidebar-content__title" data-title='serial'>
+            <i class="icon-videocam"></i>
+            <span class="sidebar-content__title-text" >Сериалы</span>
+            </h3>
+            <ul class="list sidebar-content__list" data-menu="serial">
+                <li class="sidebar-content__list-item" data-category="tv" data-type='on_the_air'>Сейчас на экранах</li>
+                <li class="sidebar-content__list-item" data-category="tv" data-type='popular'>Популярные</li>
+                <li class="sidebar-content__list-item" data-category="tv" data-type='top_rated'>Лучшие в рейтинге</li>
+              </ul>
+          <h2  class="sidebar-content__title" data-title='favorite'>
+            <i class="icon-star"></i>
+            <span class="sidebar-content__title-text">Избранное</span></h3>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-actions">
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-facebook footer-actions__icon"></i
+        ></a>
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-youtube-play footer-actions__icon"></i
+        ></a>
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-gplus footer-actions__icon"></i
+        ></a>
+        <a class="link footer-actions__link" href="#"
+          ><i class="icon-instagram footer-actions__icon"></i
+        ></a>
+      </div>
+      <div class="footer-links">
+        <a href="#" class="link footer-links__link">Главная</a>
+        <a href="#" class="link footer-links__link">Контакты</a>
+        <a href="#" class="link footer-links__link">Правообладателям</a>
+      </div>
+    </footer>
+  <script type="text/javascript" src="bundle.js?e9532d00b37c5386b057"></script></body>
+</html>
+
