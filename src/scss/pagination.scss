@@ -1,14 +1,12 @@
 .pagination {
   height: 40px;
-  display: inline-block;
-  padding: 0 20px;
+  display: block;
+  width: 352px;
+  padding: 0 calculateRem(20) 0;
   border-radius: 25px;
   background-color: $color-font-light;
+  margin: calculateRem(40) auto 0;
 
-  &-wrap {
-    text-align: center;
-    padding-top: calculateRem(40);
-  }
 
   &__link {
     float: left;
@@ -28,4 +26,7 @@
 .current {
   background-color: $color-hover;
   color: $color-font-white;
+}
+.hide {
+  display: none;
 }

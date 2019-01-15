@@ -2,7 +2,7 @@
   width: 94%;
   margin: 0 auto;
   min-height: 800px;
-  padding: calculateRem(10) 0;
+  padding: calculateRem(33) 0;
   @include for-size(tablet-portrait-up) {
     padding: calculateRem(33) 0;
     width: 94%;

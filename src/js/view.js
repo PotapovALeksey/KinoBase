@@ -1,5 +1,6 @@
 import EventEmitter from "./event-emiter";
 import createCards from "./templates/cards.hbs";
+import createFavorites from "./templates/favorite-cards.hbs";
 import * as storage from "./storage";
 
 export default class View extends EventEmitter {
@@ -9,6 +10,7 @@ export default class View extends EventEmitter {
     this.content = document.querySelector("#content");
     this.filmLink = document.querySelector('[data-category="movie"]');
     this.serialLink = document.querySelector('[data-category="tv"]');
+    this.favoriteLink = document.querySelector('[data-category="favorite"]');
     this.pagination = document.querySelector(".js-pagination");
     this.paginationLinks = [
       ...document.querySelectorAll(".js-pagination__link")
@@ -24,7 +26,7 @@ export default class View extends EventEmitter {
     this.titleFilmSidebar = document.querySelector('[data-title="film"]');
     this.titleSerialSidebar = document.querySelector('[data-title="serial"]');
     this.titleFavoritesSidebar = document.querySelector(
-      '[data-title="favorites"]'
+      '[data-title="favorite"]'
     );
     this.menuFilmSidebar = document.querySelector('[data-menu="film"]');
     this.menuSerialSidebar = document.querySelector('[data-menu="serial"]');
@@ -41,13 +43,21 @@ export default class View extends EventEmitter {
       this.handleClickPagination.bind(this)
     );
 
-    this.filmLink.addEventListener("click", this.handleClickFilm.bind(this));
+    this.filmLink.addEventListener("click", this.handleClickMovies.bind(this));
 
     this.serialLink.addEventListener(
       "click",
-      this.handleClickSerial.bind(this)
+      this.handleClickMovies.bind(this)
+    );
+    this.favoriteLink.addEventListener(
+      "click",
+      this.handleClickFavoritesLink.bind(this)
     );
 
+    this.titleFavoritesSidebar.addEventListener(
+      "click",
+      this.handleClickFavoritesTitle.bind(this)
+    );
     this.content.addEventListener("click", this.handleClickCard.bind(this));
 
     this.menuBtn.addEventListener("click", this.handleClickOpenMenu.bind(this));
@@ -77,6 +87,10 @@ export default class View extends EventEmitter {
       "click",
       this.handleClickFavorites.bind(this)
     );
+    this.content.addEventListener(
+      "click",
+      this.handleClickDeleteFavorites.bind(this)
+    );
   }
 
   handleLoadFilm() {
@@ -88,7 +102,7 @@ export default class View extends EventEmitter {
     this.emit("loadMovies", options);
   }
 
-  handleClickFilm({ target }) {
+  handleClickMovies({ target }) {
     this.page = 1;
 
     this.category = target.dataset.category;
@@ -105,20 +119,16 @@ export default class View extends EventEmitter {
     this.emit("loadMovies", options);
   }
 
-  handleClickSerial({ target }) {
-    this.page = 1;
-    this.category = target.dataset.category;
-    this.type = target.dataset.type;
-    const options = {
-      category: this.category,
-      type: this.type,
-      page: this.page
-    };
+  handleClickFavoritesLink({ target }) {
+    const category = target.dataset.category;
+    this.changeColorLinkNav(this.navLinks, "current", category);
+    this.emit("loadFavorites");
+  }
 
-    this.changeColorLinkNav(this.navLinks, "current", this.category);
-    this.changeColorLinkPag(this.paginationLinks, "current", this.page);
-
-    this.emit("loadMovies", options);
+  handleClickFavoritesTitle({ target }) {
+    const category = target.closest(".sidebar-content__title").dataset.title;
+    this.changeColorLinkNav(this.navLinks, "current", category);
+    this.emit("loadFavorites");
   }
 
   handleClickPagination({ target }) {
@@ -212,16 +222,38 @@ export default class View extends EventEmitter {
     this.paintFavoritesBtn(button);
     this.emit("addFavorites", card);
   }
+  handleClickDeleteFavorites({ target }) {
+    if (!(target.dataset.actions === "delete")) {
+      return;
+    }
+    const item = target.closest(".js-favorites-list__item");
+
+    this.emit("deleteFavorites", item);
+  }
 
   createMarkupCards(data) {
     const markup = createCards(data);
 
     this.content.innerHTML = markup;
+    this.toShowPagination();
     this.checkFavoritesCard(this.localStorageFavorites);
   }
 
+  createFavoriteCards(data) {
+    const markup = createFavorites(data);
+
+    this.content.innerHTML = markup;
+    this.toHidePagination();
+  }
+
+  
+
   createCardFilm(data) {
     console.log(data);
+  }
+
+  deleteCard(item) {
+    item.remove();
   }
 
   changeColorLinkPag(elements, className, index) {
@@ -261,6 +293,13 @@ export default class View extends EventEmitter {
 
   paintFavoritesBtn(elements) {
     elements.style.color = "#fa7305";
+  }
+
+  toHidePagination() {
+    this.pagination.classList.add("hide");
+  }
+  toShowPagination() {
+    this.pagination.classList.remove("hide");
   }
 
   openSidebar() {

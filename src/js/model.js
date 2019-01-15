@@ -33,6 +33,7 @@ export default class Model {
 
   getFavoritesCards() {
     this.localStorageFavorites = storage.get();
+    return Promise.resolve(this.localStorageFavorites);
   }
 
   addFavoritesCard(card) {
@@ -44,5 +45,11 @@ export default class Model {
     }
   }
 
-  deleteFavoritesCard() {}
+  deleteFavoritesCard(item) {
+    const id = item.dataset.id;
+    this.localStorageFavorites = this.localStorageFavorites.filter(
+      el => el.id !== id
+    );
+    storage.set(this.localStorageFavorites);
+  }
 }
