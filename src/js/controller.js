@@ -4,6 +4,7 @@ export default class Controller {
     this.view = view;
 
     view.on("loadMovies", this.createCardsMovies.bind(this));
+    view.on("search", this.createCardsSearch.bind(this));
     view.on("loadDetailFilm", this.createFilmDetail.bind(this));
     view.on("loadFavorites", this.createCardsFavorites.bind(this));
     view.on("openMenu", this.openSideBar.bind(this));
@@ -28,6 +29,12 @@ export default class Controller {
     this.model
       .getDetailFilm(value)
       .then(data => this.view.createCardFilm(data));
+  }
+
+  createCardsSearch(value) {
+    this.model
+      .getMoviesSearch(value)
+      .then(data => this.view.createSearchCards(data));
   }
 
   addToFavorites(card) {

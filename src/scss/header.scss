@@ -7,7 +7,7 @@
 
   &-actions {
     &__logo {
-      @include for-size(custom-size) {
+      @include for-size(phone-only) {
         display: none;
       }
     }

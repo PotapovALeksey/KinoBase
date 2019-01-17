@@ -20,6 +20,11 @@ body {
   background-repeat: no-repeat;
 }
 
+.content {
+  background-color: $color-hover3;
+  padding: 2.5% 2.5%;
+}
+
 .list {
   list-style: none;
   margin: 0;

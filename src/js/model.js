@@ -13,21 +13,27 @@ export default class Model {
     }&language=ru&page=${page}`;
 
     return axios(url).then(response => {
-      console.log(response.data.results);
+      return response.data.results;
+    });
+  }
+
+  getMoviesSearch(value) {
+    const url = `https://api.themoviedb.org/3/search/multi?api_key=fe18199fa91ee3037cc04bdedf00704c&language=ru&query=${value}&page=1&include_adult=false&total_pages=20&page=1`;
+
+    return axios(url).then(response => {
       return response.data.results;
     });
   }
 
   getDetailFilm(id) {
-    const url = `https://api.themoviedb.org/3/movie/297802?api_key=${
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${
       this.APIKEY
-    }&language=ru&id=${id}&append_to_response=videos,images;
+    }&language=ru&append_to_response=videos,images;
     `;
-
     return axios(url).then(response => {
-      console.log(response);
+      console.log(response.data);
 
-      return response;
+      return response.data;
     });
   }
 

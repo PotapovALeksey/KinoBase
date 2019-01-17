@@ -1,6 +1,7 @@
 import EventEmitter from "./event-emiter";
 import createCards from "./templates/cards.hbs";
 import createFavorites from "./templates/favorite-cards.hbs";
+import cardContent from "./templates/card-content.hbs";
 import * as storage from "./storage";
 
 export default class View extends EventEmitter {
@@ -11,6 +12,8 @@ export default class View extends EventEmitter {
     this.filmLink = document.querySelector('[data-category="movie"]');
     this.serialLink = document.querySelector('[data-category="tv"]');
     this.favoriteLink = document.querySelector('[data-category="favorite"]');
+    this.form = document.querySelector(".js-header-form");
+    this.formInput = document.querySelector(".js-header-form__input");
     this.pagination = document.querySelector(".js-pagination");
     this.paginationLinks = [
       ...document.querySelectorAll(".js-pagination__link")
@@ -38,6 +41,8 @@ export default class View extends EventEmitter {
       "DOMContentLoaded",
       this.handleLoadFilm.bind(this)
     );
+    this.form.addEventListener("submit", this.handleClickSubmit.bind(this));
+
     this.pagination.addEventListener(
       "click",
       this.handleClickPagination.bind(this)
@@ -100,6 +105,13 @@ export default class View extends EventEmitter {
       page: this.page
     };
     this.emit("loadMovies", options);
+  }
+
+  handleClickSubmit(e) {
+    e.preventDefault();
+    const value = this.formInput.value;
+    this.form.reset();
+    this.emit("search", value);
   }
 
   handleClickMovies({ target }) {
@@ -175,7 +187,6 @@ export default class View extends EventEmitter {
 
     const item = target.closest(".js-cards-list__item");
     const id = item.dataset.id;
-
     this.emit("loadDetailFilm", id);
   }
 
@@ -240,16 +251,36 @@ export default class View extends EventEmitter {
   }
 
   createFavoriteCards(data) {
-    const markup = createFavorites(data);
+    let markup =
+      data.length > 0 ? createFavorites(data) : this.createAboutFavoriteText();
 
     this.content.innerHTML = markup;
     this.toHidePagination();
   }
 
-  
+  createSearchCards(data) {
+    let markup = data.length > 0 ? createCards(data) : this.createAboutSearch();
+
+    this.content.innerHTML = markup;
+    this.toHidePagination();
+  }
+
+  createAboutSearch() {
+    const markup =
+      '<p class="search-about">По вашему запросу ничего не найдено!</p>';
+    return markup;
+  }
+
+  createAboutFavoriteText() {
+    const markup = '<p class="favorites-about">Ваш список избранного пуст!</p>';
+    return markup;
+  }
 
   createCardFilm(data) {
-    console.log(data);
+    const cardInfo = cardContent(data);
+
+    this.content.innerHTML = cardInfo;
+    this.toHidePagination();
   }
 
   deleteCard(item) {

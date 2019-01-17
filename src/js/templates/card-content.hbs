@@ -1,54 +1,65 @@
 <div class="content-wrap">
     <div class="content__img-wrap">
-        <img src="https://image.tmdb.org/t/p/w500/clRnzMsFoMIdC7I5JsG6dnnHH8l.jpg" alt="film-image" class="content__img" />
-        <h4 class="content__title-img">Темные времена (2017)</h4>
+        <img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="film-image" class="content__img" />
     </div>
+    <h4 class="content__title-img">{{title}}</h4>
     <div class="content__text-wrap">
-        <h3 class="content__title">Темные времена (2017)</h2>
+        <h3 class="content__title">{{title}}</h2>
             <ul class="list content__list">
                 <li class="content__item">
-                    <span class="content__item-name">страна</span>
-                    <span class="content__item-description">США, Великобритания</span>
+                    <span class="content__item-name">Страна</span>
+                    <ul class="list content__item-description">
+                        {{#each production_countries}}
+                        <li class="content__item-description-style">{{name}}</li>
+                        {{/each}}
+                    </ul>
                 </li>
                 <li class="content__item">
-                    <span class="content__item-name">слоган</span>
-                    <span class="content__item-description">«Никогда не сдавайся»</span>
+                    <span class="content__item-name">Оригинальное название</span>
+                    <span class="content__item-description">{{original_title}}</span>
                 </li>
                 <li class="content__item">
-                    <span class="content__item-name">режиссер</span>
-                    <span class="content__item-description">Джо Райт</span>
+                    <span class="content__item-name">Компании</span>
+                    <ul class="list content__item-description">
+                        {{#each production_companies}}
+                        <li class="content__item-description-style">{{name}}</li>
+                        {{/each}}
+                    </ul>
                 </li>
                 <li class="content__item">
-                    <span class="content__item-name">сценарий</span>
-                    <span class="content__item-description">Энтони МакКартен</span>
+                    <span class="content__item-name">Жанр</span>
+                    <ul class="list content__item-description">
+                        {{#each genres}}
+                        <li class="content__item-description-style">{{name}}</li>
+                        {{/each}}
+                    </ul>
                 </li>
                 <li class="content__item">
-                    <span class="content__item-name">жанр</span>
-                    <span class="content__item-description">драма, военный, биография, история</span>
+                    <span class="content__item-name">Бюджет</span>
+                    {{#if budget}}
+                    <span class="content__item-description">{{budget}} $</span>
+                    {{else}}
+                    <span class="content__item-description">{{revenue}} $</span>
+                    {{/if}}
                 </li>
                 <li class="content__item">
-                    <span class="content__item-name">время</span>
-                    <span class="content__item-description">125 мин. / 02:05</span>
+                    <span class="content__item-name">Время</span>
+                    <span class="content__item-description">{{runtime}} мин.</span>
+                </li>
+                <li class="content__item">
+                    <span class="content__item-name">Дата выхода</span>
+                    <span class="content__item-description">{{release_date}} </span>
                 </li>
             </ul>
             <div class="content__about-wrap">
                 <h3 class="content__title-about">Про фильм</h2>
                     <p class="content__about">
-                        История о первом и решающем шаге Уинстона Черчилля на посту
-                        премьер-министра Великобритании, получившего власть при
-                        чрезвычайных обстоятельствах. Успехи нацистской армии взбудоражили
-                        британское сообщество, но вопреки давлению и страху других
-                        политиков Черчилль отказывается идти на соглашение с Гитлером.
-                        История о первом и решающем шаге Уинстона Черчилля на посту
-                        премьер-министра Великобритании, получившего власть при
-                        чрезвычайных обстоятельствах. Успехи нацистской армии взбудоражили
-                        британское сообщество, но вопреки давлению и страху других
-                        политиков Черчилль отказывается идти на соглашение с Гитлером.
+                        {{overview}}
                     </p>
             </div>
     </div>
 </div>
 <div class="content__iframe-wrap">
     <h3 class="content__iframe-title">Трейлер</h3>
-    <iframe class="content__iframe" src="https://www.youtube.com/embed/1mrjPl7Ijzs" frameborder="0"></iframe>
+    <iframe class="content__iframe" src="https://www.youtube.com/embed/{{videos.results.[0].key}}" frameborder="0"></iframe>
 </div>
