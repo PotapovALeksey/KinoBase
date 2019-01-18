@@ -27,7 +27,7 @@ export default class Controller {
 
   createFilmDetail(value) {
     this.model
-      .getDetailFilm(value)
+      .getDetailMovies(value)
       .then(data => this.view.createCardFilm(data));
   }
 

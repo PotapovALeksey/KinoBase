@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: $color-main-background;
-  padding: calculateRem(24);
+  padding: calculateRem(20) calculateRem(24);
+  align-items: center;
 
   &-actions {
     &__logo {
@@ -13,7 +14,7 @@
     }
     &__button-menu {
       background-color: transparent;
-      font-size: $font-size-medium;
+      font-size: $font-size-big;
       line-height: 1.2;
       color: $color-font-dark;
       margin-right: calculateRem(28);
@@ -21,16 +22,25 @@
     &__icon-menu {
     }
     &__logo-text {
-      font-size: $font-size-medium;
+      font-size: $font-size-big;
       color: $color-font-dark;
     }
     &__logo-image {
-      vertical-align: bottom;
+      vertical-align: text-bottom;
+      height: 30px;
     }
   }
 
   &-form {
+    &__wrap {
+      width: 200px;
+    }
+    &-inputs__wrap {
+      display: flex;
+      justify-content: space-between;
+    }
     border-bottom: $color-font-dark solid 1px;
+    margin-bottom: calculateRem(10);
     &__button {
       font-size: $font-size-medium;
       line-height: 1.2;
@@ -45,4 +55,55 @@
       font-size: $font-size-small3;
     }
   }
+
+  &-inputs {
+    &__radio-wrap > label {
+      cursor: pointer;
+    }
+    &__radio {
+    }
+  }
+}
+label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label:before {
+  content: "";
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #fff;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+}
+.radio label:before {
+  border-radius: 8px;
+}
+
+input[type="radio"]:checked + label:before {
+  content: "\E807";
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  color: $color-hover3;
+  font-size: 17px;
+  text-align: center;
+  line-height: 18px;
 }

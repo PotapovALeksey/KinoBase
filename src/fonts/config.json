@@ -83,6 +83,12 @@
       "css": "right-open",
       "code": 59398,
       "src": "fontawesome"
+    },
+    {
+      "uid": "7b16b22168e762c88333f465da862098",
+      "css": "ok",
+      "code": 59399,
+      "src": "websymbols"
     }
   ]
 }

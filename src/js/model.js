@@ -17,18 +17,18 @@ export default class Model {
     });
   }
 
-  getMoviesSearch(value) {
-    const url = `https://api.themoviedb.org/3/search/multi?api_key=fe18199fa91ee3037cc04bdedf00704c&language=ru&query=${value}&page=1&include_adult=false&total_pages=20&page=1`;
+  getMoviesSearch({ category, value }) {
+    const url = `https://api.themoviedb.org/3/search/${category}?api_key=fe18199fa91ee3037cc04bdedf00704c&language=ru&query=${value}&page=1&include_adult=false&total_pages=20&page=1`;
 
     return axios(url).then(response => {
       return response.data.results;
     });
   }
 
-  getDetailFilm(id) {
-    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${
+  getDetailMovies({ category, id }) {
+    const url = `https://api.themoviedb.org/3/${category}/${id}?api_key=${
       this.APIKEY
-    }&language=ru&append_to_response=videos,images;
+    }&language=ru&in_production=true&append_to_response=videos,images;
     `;
     return axios(url).then(response => {
       console.log(response.data);

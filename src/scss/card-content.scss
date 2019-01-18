@@ -70,12 +70,16 @@
     font-size: $font-size-small2;
     display: flex;
 
+    &-link {
+      color: #ffffff;
+    }
     &-name {
       flex-basis: 30%;
       padding-left: calculateRem(17);
     }
     &-description {
       flex-basis: 70%;
+      padding-left: calculateRem(10);
       &-style {
         display: inline-block;
         &:not(:last-child) {

@@ -1,0 +1,18 @@
+<ul class="list search-list js-search-list">
+    {{#each this}}
+    <li class="search-list__item js-search-list__item" data-id={{id}} data-actions="card">
+        <div class="search-list__item-vote">{{vote_average}}</div>
+        <img class=" search-list__item-img js-list__item-img" src='https://image.tmdb.org/t/p/w300{{poster_path}}'>
+        <button class="btn search-list__item-button js-list__item-button">
+            <i class="icon-star search-list__item-icon js-icon-star"></i>
+        </button>
+
+        {{#if title}}
+        <h3 class="search-list__item-title js-list__item-title">{{title}}</h3>
+        {{else}}
+        <h3 class="search-list__item-title js-list__item-title">{{name}}</h3>
+        {{/ if }}
+        <div class="search-list__item-overlay js-list__item-overlay"></div>
+    </li>
+    {{/each}}
+</ul>

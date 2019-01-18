@@ -1,13 +1,13 @@
 <ul class="list favorites-list js-favorites-list">
     {{#each this}}
-    <li class="favorites-list__item js-favorites-list__item" data-id={{id}}>
+    <li class="favorites-list__item js-favorites-list__item" data-id={{id}} data-actions="card" data-category={{category}}>
 
         <img class=" favorites-list__item-img" src={{img}}>
         <button class="btn favorites-list__item-button ">
             <i class="icon-cancel favorites-list__item-icon" data-actions='delete'></i>
         </button>
         <h3 class="favorites-list__item-title">{{title}}</h3>
-        <div class="favorites-list__item-overlay js-favorites-list__item-overlay"></div>
+        <div class="favorites-list__item-overlay js-list__item-overlay"></div>
     </li>
     {{/each}}
 </ul>

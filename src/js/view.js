@@ -1,6 +1,7 @@
 import EventEmitter from "./event-emiter";
 import createCards from "./templates/cards.hbs";
 import createFavorites from "./templates/favorite-cards.hbs";
+import createSearch from "./templates/search-cards.hbs";
 import cardContent from "./templates/card-content.hbs";
 import * as storage from "./storage";
 
@@ -9,9 +10,9 @@ export default class View extends EventEmitter {
     super();
     this.localStorageFavorites = storage.get() || [];
     this.content = document.querySelector("#content");
-    this.filmLink = document.querySelector('[data-category="movie"]');
-    this.serialLink = document.querySelector('[data-category="tv"]');
-    this.favoriteLink = document.querySelector('[data-category="favorite"]');
+    this.filmLink = document.querySelector('a[data-category="movie"]');
+    this.serialLink = document.querySelector('a[data-category="tv"]');
+    this.favoriteLink = document.querySelector('a[data-category="favorite"]');
     this.form = document.querySelector(".js-header-form");
     this.formInput = document.querySelector(".js-header-form__input");
     this.pagination = document.querySelector(".js-pagination");
@@ -109,9 +110,15 @@ export default class View extends EventEmitter {
 
   handleClickSubmit(e) {
     e.preventDefault();
+    this.category = document.querySelector(
+      'input[type="radio"]:checked'
+    ).dataset.category;
+
     const value = this.formInput.value;
+    const options = { category: this.category, value };
     this.form.reset();
-    this.emit("search", value);
+
+    this.emit("search", options);
   }
 
   handleClickMovies({ target }) {
@@ -181,13 +188,16 @@ export default class View extends EventEmitter {
   }
 
   handleClickCard({ target }) {
-    if (!target.classList.contains("js-cards-list__item-overlay")) {
+    if (!target.classList.contains("js-list__item-overlay")) {
       return;
     }
 
-    const item = target.closest(".js-cards-list__item");
+    const item = target.closest("li[data-actions='card']");
+    this.category = item.dataset.category;
     const id = item.dataset.id;
-    this.emit("loadDetailFilm", id);
+
+    const options = { category: this.category, id };
+    this.emit("loadDetailFilm", options);
   }
 
   handleClickOpenMenu() {
@@ -220,18 +230,22 @@ export default class View extends EventEmitter {
     if (!target.classList.contains("js-icon-star")) {
       return;
     }
-    const item = target.closest(".js-cards-list__item");
-    const button = item.querySelector(".cards-list__item-button");
+
+    const item = target.closest("[data-actions='card']");
+    const button = item.querySelector(".js-list__item-button");
     const id = item.dataset.id;
-    const title = item.querySelector(".cards-list__item-title").textContent;
-    const img = item.querySelector(".cards-list__item-img").src;
+    const title = item.querySelector(".js-list__item-title").textContent;
+    const img = item.querySelector(".js-list__item-img").src;
+
     const card = {
       id,
       title,
-      img
+      img,
+      category: this.category
     };
     this.paintFavoritesBtn(button);
     this.emit("addFavorites", card);
+    return;
   }
   handleClickDeleteFavorites({ target }) {
     if (!(target.dataset.actions === "delete")) {
@@ -248,6 +262,7 @@ export default class View extends EventEmitter {
     this.content.innerHTML = markup;
     this.toShowPagination();
     this.checkFavoritesCard(this.localStorageFavorites);
+    this.addCardsAtrCategory(this.category);
   }
 
   createFavoriteCards(data) {
@@ -259,9 +274,11 @@ export default class View extends EventEmitter {
   }
 
   createSearchCards(data) {
-    let markup = data.length > 0 ? createCards(data) : this.createAboutSearch();
+    let markup =
+      data.length > 0 ? createSearch(data) : this.createAboutSearch();
 
     this.content.innerHTML = markup;
+    this.addCardsAtrCategory(this.category);
     this.toHidePagination();
   }
 
@@ -281,6 +298,13 @@ export default class View extends EventEmitter {
 
     this.content.innerHTML = cardInfo;
     this.toHidePagination();
+  }
+
+  addCardsAtrCategory(category) {
+    const cards = document.querySelectorAll("li[data-actions='card']");
+    console.log(cards);
+
+    cards.forEach(item => item.setAttribute("data-category", category));
   }
 
   deleteCard(item) {
