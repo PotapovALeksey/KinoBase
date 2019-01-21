@@ -37,6 +37,15 @@ export default class Model {
     });
   }
 
+  getCreditsMovie({ category, id }) {
+    const url = `https://api.themoviedb.org/3/${category}/${id}/credits?api_key=fe18199fa91ee3037cc04bdedf00704c`;
+
+    return axios(url).then(response => {
+      console.log(response.data);
+      return response.data;
+    });
+  }
+
   getFavoritesCards() {
     this.localStorageFavorites = storage.get();
     return Promise.resolve(this.localStorageFavorites);

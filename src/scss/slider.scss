@@ -1,37 +1,39 @@
-.slider {
-  &-actors {
-    width: 256px;
-    height: 128px;
-    border: 5px solid black;
+$slick-font-path: "/node_modules/slick-carousel/slick/fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "/node_modules/slick-carousel/slick-carousel/slick/" !default;
+$slick-arrow-color: black !default;
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+
+.content__slider-actors {
+  &-wrap {
+    // width: 90%;
     margin: 0 auto;
-    box-sizing: content-box;
-    overflow: hidden;
   }
 
-  &-list {
-    width: 896px;
-    position: relative;
-    left: 0;
-    right: 0;
-    transition: all ease 500ms;
-    &::after {
-      content: "";
-      display: block;
-      clear: both;
-    }
+  &-title {
+    text-align: left;
+    padding-left: calculateRem(20);
+    font-size: $font-size-medium;
+    margin-bottom: calculateRem(30);
+    color: $color-font-white;
 
-    &__item {
-      display: none;
-      float: left;
-      overflow: hidden;
-      height: 128px;
-      position: absolute;
+    @include for-size(phone-only) {
+      padding-left: 0;
     }
+  }
 
-    &__img {
-      width: 128px;
-      height: 128px;
-    }
+  &-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: calculateRem(20);
+  }
+
+  &-name {
+    text-align: center;
+    font-size: $font-size-small3;
+    color: $color-font-white;
+    margin-bottom: calculateRem(20);
   }
 }
-

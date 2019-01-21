@@ -3,6 +3,9 @@ import createCards from "./templates/cards.hbs";
 import createFavorites from "./templates/favorite-cards.hbs";
 import createSearch from "./templates/search-cards.hbs";
 import cardContent from "./templates/card-content.hbs";
+import createSliderActors from "./templates/slider-actors.hbs";
+import $ from "jquery";
+import "slick-carousel";
 import * as storage from "./storage";
 
 export default class View extends EventEmitter {
@@ -260,6 +263,7 @@ export default class View extends EventEmitter {
     const markup = createCards(data);
 
     this.content.innerHTML = markup;
+
     this.toShowPagination();
     this.checkFavoritesCard(this.localStorageFavorites);
     this.addCardsAtrCategory(this.category);
@@ -300,9 +304,23 @@ export default class View extends EventEmitter {
     this.toHidePagination();
   }
 
+  createSliderActors(data) {
+    const markupSliderActors = createSliderActors(data);
+
+    const sliderActorsWrap = document.querySelector(
+      ".js-content__slider-actors-wrap"
+    );
+    console.log(sliderActorsWrap);
+    sliderActorsWrap.innerHTML = markupSliderActors;
+    const sliderList = document.querySelector(".js-content__slider-actors");
+    console.log(sliderList);
+    this.sliderActors(sliderList);
+    // console.log(markupSliderActors);
+    // console.log(sliderActors);
+  }
+
   addCardsAtrCategory(category) {
     const cards = document.querySelectorAll("li[data-actions='card']");
-    console.log(cards);
 
     cards.forEach(item => item.setAttribute("data-category", category));
   }
@@ -377,5 +395,15 @@ export default class View extends EventEmitter {
   }
   hideSerialMenu() {
     this.menuSerialSidebar.classList.toggle("hidden");
+  }
+
+  sliderActors(elem) {
+    $(elem).slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      centerMode: true,
+      centerPadding: "20px"
+    });
   }
 }

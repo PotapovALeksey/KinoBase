@@ -33,6 +33,8 @@
     "axios": "^0.18.0",
     "handlebars": "^4.0.12",
     "handlebars-loader": "^1.7.0",
-    "normalize.css": "^8.0.1"
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.1",
+    "slick-carousel": "^1.8.1"
   }
 }

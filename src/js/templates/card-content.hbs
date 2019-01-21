@@ -4,125 +4,133 @@
         <img src="https://image.tmdb.org/t/p/w500/{{poster_path}}" class="content__img" />
         {{/if}}
     </div>
+    {{#if title}}
     <h4 class="content__title-img">{{title}}</h4>
+    {{else if name}}
+    <h4 class="content__title-img">{{name}}</h4>
+    {{/if}}
     <div class="content__text-wrap">
-        <h3 class="content__title">{{title}}</h2>
-            <ul class="list content__list">
-                <li class="content__item">
-                    <span class="content__item-name">Страна</span>
-                    <ul class="list content__item-description">
-                        {{#if production_countries}}
-                        {{#each production_countries}}
-                        <li class="content__item-description-style">{{name}}</li>
-                        {{/each}}
-                        {{else}}
-                        {{#each origin_country}}
-                        <li class="content__item-description-style">{{this}}</li>
-                        {{/each}}
-                        {{/if}}
-                    </ul>
-                </li>
-                <li class="content__item">
-                    <span class="content__item-name">Оригинальное название</span>
+        {{#if title}}
+        <h3 class="content__title">{{title}}</h3>
+        {{else if name}}
+        <h3 class="content__title">{{name}}</h3>
+        {{/if}}
+        <ul class="list content__list">
+            <li class="content__item">
+                <span class="content__item-name">Страна</span>
+                <ul class="list content__item-description">
+                    {{#if production_countries}}
+                    {{#each production_countries}}
+                    <li class="content__item-description-style">{{name}}</li>
+                    {{/each}}
+                    {{else}}
+                    {{#each origin_country}}
+                    <li class="content__item-description-style">{{this}}</li>
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </li>
+            <li class="content__item">
+                <span class="content__item-name">Оригинальное название</span>
 
-                    <span class="content__item-description">
-                        {{#if original_title}}
-                        {{original_title}}
-                        {{else}}
-                        {{original_name}}
-                        {{/if}}
-                    </span>
-                </li>
-                {{#if production_companies}}
-                <li class="content__item">
-                    <span class="content__item-name">Компании</span>
-                    <ul class="list content__item-description">
-                        {{#each production_companies}}
-                        <li class="content__item-description-style">{{name}}</li>
-                        {{/each}}
-                    </ul>
-                </li>
-                {{/if}}
-                {{#if genres}}
-                <li class="content__item">
-                    <span class="content__item-name">Жанр</span>
-                    <ul class="list content__item-description">
-                        {{#each genres}}
-                        <li class="content__item-description-style">{{name}}</li>
-                        {{/each}}
-                    </ul>
-                </li>
-                {{/if}}
-
-                {{#if budget}}
-                <li class="content__item">
-                    <span class="content__item-name">Бюджет</span>
-                    <span class="content__item-description">{{budget}} $</span>
-                </li>
-                {{/if}}
-                {{#if revenue}}
-                <li class="content__item">
-                    <span class="content__item-name">Кассовые сборы</span>
-                    <span class="content__item-description">{{revenue}} $</span>
-                </li>
-                {{/if}}
-                {{#if created_by}}
-                <li class="content__item">
-                    <span class="content__item-name">Продюсер(ы)</span>
-                    <ul class="list content__item-description">
-                        {{#each created_by}}
-                        <li class="content__item-description-style">{{name}}</li>
-                        {{/each}}
-                    </ul>
-                </li>
-                {{/if}}
-                </li>
-                {{#if runtime}}
-                <li class="content__item">
-                    <span class="content__item-name">Время</span>
-                    <span class="content__item-description">
-                        {{runtime}}
-                        мин.</span></li>
-                {{else if episode_run_time}}
-                <li class="content__item">
-                    <span class="content__item-name">Время</span>
-                    <span class="content__item-description">
-                        {{episode_run_time}}
-                        мин.</span>
-                </li>
-                {{/if}}
-
-                {{#if release_date}}
-                <li class="content__item">
-                    <span class="content__item-name">Дата выхода</span>
-                    <span class="content__item-description">
-                        {{release_date}}
-                    </span>
-                </li>
-                {{else if first_air_date}}
-                <li class="content__item">
-                    <span class="content__item-name">Дата выхода</span>
-                    <span class="content__item-description">
-                        {{first_air_date}}
-                    </span>
-                </li>
-
-                {{/if}}
+                <span class="content__item-description">
+                    {{#if original_title}}
+                    {{original_title}}
+                    {{else}}
+                    {{original_name}}
+                    {{/if}}
                 </span>
-                </li>
-                {{#if homepage}}
-                <li class="content__item">
-                    <span class="content__item-name">Страница фильма</span>
-                    <a class="link content__item-link" href={{homepage}} target='blank'><span class="content__item-description">{{homepage}}</span></a>
-                </li>
-                {{/if}}
-            </ul>
-            <div class="content__about-wrap">
-                <h3 class="content__title-about">Про фильм</h2>
-                    <p class="content__about">
-                        {{overview}}
-                    </p>
-            </div>
+            </li>
+            {{#if production_companies}}
+            <li class="content__item">
+                <span class="content__item-name">Компании</span>
+                <ul class="list content__item-description">
+                    {{#each production_companies}}
+                    <li class="content__item-description-style">{{name}}</li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/if}}
+            {{#if genres}}
+            <li class="content__item">
+                <span class="content__item-name">Жанр</span>
+                <ul class="list content__item-description">
+                    {{#each genres}}
+                    <li class="content__item-description-style">{{name}}</li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/if}}
+
+            {{#if budget}}
+            <li class="content__item">
+                <span class="content__item-name">Бюджет</span>
+                <span class="content__item-description">{{budget}} $</span>
+            </li>
+            {{/if}}
+            {{#if revenue}}
+            <li class="content__item">
+                <span class="content__item-name">Кассовые сборы</span>
+                <span class="content__item-description">{{revenue}} $</span>
+            </li>
+            {{/if}}
+            {{#if created_by}}
+            <li class="content__item">
+                <span class="content__item-name">Продюсер(ы)</span>
+                <ul class="list content__item-description">
+                    {{#each created_by}}
+                    <li class="content__item-description-style">{{name}}</li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/if}}
+            </li>
+            {{#if runtime}}
+            <li class="content__item">
+                <span class="content__item-name">Время</span>
+                <span class="content__item-description">
+                    {{runtime}}
+                    мин.</span></li>
+            {{else if episode_run_time}}
+            <li class="content__item">
+                <span class="content__item-name">Время</span>
+                <span class="content__item-description">
+                    {{episode_run_time}}
+                    мин.</span>
+            </li>
+            {{/if}}
+
+            {{#if release_date}}
+            <li class="content__item">
+                <span class="content__item-name">Дата выхода</span>
+                <span class="content__item-description">
+                    {{release_date}}
+                </span>
+            </li>
+            {{else if first_air_date}}
+            <li class="content__item">
+                <span class="content__item-name">Дата выхода</span>
+                <span class="content__item-description">
+                    {{first_air_date}}
+                </span>
+            </li>
+
+            {{/if}}
+            </span>
+            </li>
+            {{#if homepage}}
+            <li class="content__item">
+                <span class="content__item-name">Страница фильма</span>
+                <a class="link content__item-link" href={{homepage}} target='blank'><span class="content__item-description">{{homepage}}</span></a>
+            </li>
+            {{/if}}
+        </ul>
+        <div class="content__about-wrap">
+            <h3 class="content__title-about">Про фильм</h2>
+                <p class="content__about">
+                    {{overview}}
+                </p>
+        </div>
     </div>
 </div>
 {{#if videos.results}}
@@ -131,3 +139,6 @@
     <iframe class="content__iframe" src="https://www.youtube.com/embed/{{videos.results.[0].key}}" frameborder="0"></iframe>
 </div>
 {{/if}}
+<div class='content__slider-actors-wrap js-content__slider-actors-wrap'>
+
+</div>

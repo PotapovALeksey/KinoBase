@@ -1,0 +1,11 @@
+<h3 class='content__slider-actors-title'>Актёры</h3>
+<div class='content__slider-actors js-content__slider-actors'>
+    {{#each cast}}
+    {{#if profile_path}}
+    <div>
+        <img class='content__slider-actors-img' src="https://image.tmdb.org/t/p/w500{{profile_path}}">
+        <h5 class='content__slider-actors-name'>{{name}}</h5>
+    </div>
+    {{/if}}
+    {{/each}}
+</div>
