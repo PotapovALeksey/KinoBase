@@ -7,6 +7,7 @@ export default class Controller {
     view.on("search", this.createCardsSearch.bind(this));
     view.on("loadDetailFilm", this.createFilmDetail.bind(this));
     view.on("loadDetailFilm", this.createSliderActor.bind(this));
+    view.on("loadDetailFilm", this.test.bind(this));
     view.on("loadFavorites", this.createCardsFavorites.bind(this));
     view.on("openMenu", this.openSideBar.bind(this));
     view.on("closeMenu", this.closeSidebar.bind(this));
@@ -14,6 +15,16 @@ export default class Controller {
     view.on("hideSerialMenu", this.toggleSerialMenu.bind(this));
     view.on("addFavorites", this.addToFavorites.bind(this));
     view.on("deleteFavorites", this.deleteFavorites.bind(this));
+  }
+
+  test(value) {
+    Promise.all([
+      this.model.getDetailMovies(value),
+      this.model.getCreditsMovie(value)
+    ]).then(data => {
+      console.log(data);
+      // console.log(data);
+    });
   }
 
   createCardsMovies(value) {
@@ -27,15 +38,13 @@ export default class Controller {
   }
 
   createFilmDetail(value) {
-    this.model
-      .getDetailMovies(value)
-      .then(data => this.view.createCardFilm(data));
+    this.model.getDetailMovies(value);
+    // .then(data => this.view.createCardFilm(data));
   }
 
   createSliderActor(value) {
-    this.model
-      .getCreditsMovie(value)
-      .then(data => this.view.createSliderActors(data));
+    this.model.getCreditsMovie(value);
+    // .then(data => this.view.createSliderActors(data));
   }
 
   createCardsSearch(value) {

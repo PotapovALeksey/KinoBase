@@ -402,7 +402,7 @@ export default class View extends EventEmitter {
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 3,
-      centerMode: true,
+      // centerMode: true,
       centerPadding: "20px"
     });
   }

@@ -48,7 +48,7 @@ module.exports = {
     new CleanWebpackPlugin("build"),
     new HtmlWebpackPlugin({
       hash: true,
-      template: "./public/index.html",
+      template: '!!html-loader?interpolate!./public/index.html',
       filename: "index.html"
     }),
     new MiniCssExtractPlugin({

@@ -31,7 +31,7 @@ export default class Model {
     }&language=ru&in_production=true&append_to_response=videos,images;
     `;
     return axios(url).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
 
       return response.data;
     });
@@ -41,7 +41,7 @@ export default class Model {
     const url = `https://api.themoviedb.org/3/${category}/${id}/credits?api_key=fe18199fa91ee3037cc04bdedf00704c`;
 
     return axios(url).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     });
   }
