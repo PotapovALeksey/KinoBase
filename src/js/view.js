@@ -4,6 +4,7 @@ import createFavorites from "./templates/favorite-cards.hbs";
 import createSearch from "./templates/search-cards.hbs";
 import cardContent from "./templates/card-content.hbs";
 import createSliderActors from "./templates/slider-actors.hbs";
+import createSliderCadrs from "./templates/slider-cadrs.hbs";
 import $ from "jquery";
 import "slick-carousel";
 import * as storage from "./storage";
@@ -298,10 +299,13 @@ export default class View extends EventEmitter {
   }
 
   createCardFilm(data) {
-    const cardInfo = cardContent(data);
+    const cardInfo = cardContent(data[0]);
 
     this.content.innerHTML = cardInfo;
     this.toHidePagination();
+
+    this.createSliderActors(data[1]);
+    this.createSliderCadrs(data[2]);
   }
 
   createSliderActors(data) {
@@ -310,13 +314,22 @@ export default class View extends EventEmitter {
     const sliderActorsWrap = document.querySelector(
       ".js-content__slider-actors-wrap"
     );
-    console.log(sliderActorsWrap);
+
     sliderActorsWrap.innerHTML = markupSliderActors;
     const sliderList = document.querySelector(".js-content__slider-actors");
-    console.log(sliderList);
+
     this.sliderActors(sliderList);
-    // console.log(markupSliderActors);
-    // console.log(sliderActors);
+  }
+
+  createSliderCadrs(data) {
+    const markupSliderCadr = createSliderCadrs(data);
+    const sliderCadrsWrap = document.querySelector(
+      ".js-content__slider-cadrs-wrap"
+    );
+    sliderCadrsWrap.innerHTML = markupSliderCadr;
+    const sliderList = document.querySelector(".js-content__slider-cadrs");
+    console.log(sliderList);
+    this.slideCadrs(sliderList);
   }
 
   addCardsAtrCategory(category) {
@@ -402,8 +415,25 @@ export default class View extends EventEmitter {
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 3,
-      // centerMode: true,
-      centerPadding: "20px"
+      prevArrow:
+        '<button type="button" class=" icon-left-open slider-prev slider-button"></button>',
+      nextArrow:
+        '<button type="button" class=" icon-right-open slider-next slider-button"></button>'
+    });
+  }
+
+  slideCadrs(elem) {
+    $(elem).slick({
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 1000,
+      fade: true,
+      cssEase: "linear",
+      prevArrow:
+        '<button type="button" class=" icon-left-circle slider-prev slider-button"></button>',
+      nextArrow:
+        '<button type="button" class=" icon-right-circle slider-next slider-button"></button>'
     });
   }
 }

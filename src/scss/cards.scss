@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  // padding: calculateRem(15);
+  animation: filmcards 400ms linear;
 
   &__item {
     position: relative;
@@ -106,5 +106,14 @@
       );
       border-radius: inherit;
     }
+  }
+}
+
+@keyframes filmcards {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -13,27 +13,27 @@
       "src": "fontawesome"
     },
     {
-      "uid": "671f29fa10dda08074a4c6a341bb4f39",
-      "css": "bell-alt",
-      "code": 61683,
+      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
+      "css": "facebook",
+      "code": 61594,
       "src": "fontawesome"
     },
     {
-      "uid": "559647a6f430b3aeadbecd67194451dd",
-      "css": "menu",
-      "code": 61641,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
-      "css": "search",
+      "uid": "872d9516df93eb6b776cc4d94bd97dac",
+      "css": "video",
       "code": 59393,
       "src": "fontawesome"
     },
     {
-      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
-      "css": "facebook",
-      "code": 61594,
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59395,
       "src": "fontawesome"
     },
     {
@@ -43,9 +43,27 @@
       "src": "fontawesome"
     },
     {
+      "uid": "559647a6f430b3aeadbecd67194451dd",
+      "css": "menu",
+      "code": 61641,
+      "src": "fontawesome"
+    },
+    {
       "uid": "b8d0c7d76e87b94882329a88e8e43d3d",
       "css": "gplus",
       "code": 61653,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59396,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
+      "css": "search",
+      "code": 59397,
       "src": "fontawesome"
     },
     {
@@ -55,40 +73,22 @@
       "src": "entypo"
     },
     {
-      "uid": "872d9516df93eb6b776cc4d94bd97dac",
-      "css": "video",
-      "code": 59394,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "0f99ab40ab0b4d64a74f2d0deeb03e42",
-      "css": "videocam",
-      "code": 59395,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "11e664deed5b2587456a4f9c01d720b6",
-      "css": "cancel",
-      "code": 59396,
-      "src": "iconic"
-    },
-    {
-      "uid": "d870630ff8f81e6de3958ecaeac532f2",
-      "css": "left-open",
-      "code": 59397,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
-      "css": "right-open",
+      "uid": "7e092c82e9a758b6e95297007969aac1",
+      "css": "left-circle",
       "code": 59398,
-      "src": "fontawesome"
+      "src": "websymbols"
     },
     {
-      "uid": "7b16b22168e762c88333f465da862098",
-      "css": "ok",
+      "uid": "d30928620bda0d5eaa85d3b65bf19963",
+      "css": "right-circle",
       "code": 59399,
       "src": "websymbols"
+    },
+    {
+      "uid": "14017aae737730faeda4a6fd8fb3a5f0",
+      "css": "check",
+      "code": 59400,
+      "src": "entypo"
     }
   ]
 }

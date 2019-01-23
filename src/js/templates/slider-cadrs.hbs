@@ -1,0 +1,10 @@
+<h3 class='content__slider-cadrs-title'>Кадры из фильма</h3>
+<div class='content__slider-cadrs js-content__slider-cadrs'>
+    {{#each backdrops}}
+    {{#if file_path}}
+    <div>
+        <img class='content__slider-cadrs-img' src="https://image.tmdb.org/t/p/w500{{file_path}}">
+    </div>
+    {{/if}}
+    {{/each}}
+</div>

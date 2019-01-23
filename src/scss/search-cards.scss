@@ -1,7 +1,7 @@
 .search-list {
   display: flex;
   flex-wrap: wrap;
-
+  animation: filmcards 400ms linear;
   &__item {
     position: relative;
     cursor: pointer;
@@ -115,5 +115,14 @@
       );
       border-radius: inherit;
     }
+  }
+}
+
+@keyframes filmcards {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

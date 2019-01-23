@@ -5,9 +5,112 @@ $slick-arrow-color: black !default;
 @import "~slick-carousel/slick/slick.scss";
 @import "~slick-carousel/slick/slick-theme.scss";
 
+// ACTORS SLIDER
+
+.content__slider-actors .slick-slide {
+  padding: 0 calculateRem(8);
+  @include for-size(phone-only) {
+    padding: 0 calculateRem(4);
+  }
+}
+.slider-button {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.content__slider-actors .slider-next {
+  line-height: 0px;
+  font-size: 20px;
+  right: -25px;
+  top: 45%;
+  -webkit-transform: translate(0, -45%);
+  transform: translate(0, -45%);
+  color: #fff;
+}
+
+.content__slider-actors .slider-prev {
+  line-height: 0px;
+  font-size: 20px;
+  left: -25px;
+  top: 45%;
+  -webkit-transform: translate(0, -45%);
+  transform: translate(0, -45%);
+  color: #fff;
+}
+
 .content__slider-actors {
+  @include for-size(phone-only) {
+    width: 90%;
+  }
+
+  width: 70%;
+  margin: 0 auto;
   &-wrap {
-    // width: 90%;
+    margin: 0 auto calculateRem(40);
+  }
+
+  &-title {
+    text-align: left;
+    padding-left: calculateRem(20);
+    font-size: $font-size-medium;
+    margin-bottom: calculateRem(30);
+    color: $color-font-white;
+
+    @include for-size(phone-only) {
+      padding-left: 0;
+    }
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: calculateRem(10);
+  }
+
+  &-name {
+    text-align: center;
+    font-size: $font-size-small2;
+    color: $color-font-white;
+    font-weight: 300;
+  }
+}
+
+// CADRS SLIDER
+.content__slider-cadrs .slider-next {
+  line-height: 0px;
+  font-size: 18px;
+  right: -35px;
+  top: 50%;
+  -webkit-transform: translate(0, -45%);
+  transform: translate(0, -45%);
+}
+
+.content__slider-cadrs .slider-prev {
+  line-height: 0px;
+  font-size: 18px;
+  left: -35px;
+  top: 50%;
+  -webkit-transform: translate(0, -45%);
+  transform: translate(0, -45%);
+}
+
+.content__slider-cadrs {
+  @include for-size(phone-only) {
+    width: 70%;
+  }
+
+  width: 60%;
+  margin: 0 auto;
+  &-wrap {
     margin: 0 auto;
   }
 
@@ -27,13 +130,6 @@ $slick-arrow-color: black !default;
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: calculateRem(20);
-  }
-
-  &-name {
-    text-align: center;
-    font-size: $font-size-small3;
-    color: $color-font-white;
-    margin-bottom: calculateRem(20);
+    margin-bottom: calculateRem(10);
   }
 }
