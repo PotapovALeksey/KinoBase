@@ -1,10 +1,10 @@
 
-.icon-star:before { content: '\e800'; } /* '' */
+.icon-videocam:before { content: '\e800'; } /* '' */
 .icon-video:before { content: '\e801'; } /* '' */
-.icon-right-open:before { content: '\e802'; } /* '' */
+.icon-star:before { content: '\e802'; } /* '' */
 .icon-left-open:before { content: '\e803'; } /* '' */
 .icon-cancel:before { content: '\e804'; } /* '' */
-.icon-search:before { content: '\e805'; } /* '' */
+.icon-right-open:before { content: '\e805'; } /* '' */
 .icon-left-circle:before { content: '\e806'; } /* '' */
 .icon-right-circle:before { content: '\e807'; } /* '' */
 .icon-check:before { content: '\e808'; } /* '' */
@@ -12,4 +12,4 @@
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-gplus:before { content: '\f0d5'; } /* '' */
 .icon-youtube-play:before { content: '\f16a'; } /* '' */
-.icon-instagram:before { content: '\f32d'; } /* '' */
+.icon-instagram:before { content: '\f16d'; } /* '' */

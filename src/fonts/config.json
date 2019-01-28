@@ -7,15 +7,15 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "474656633f79ea2f1dad59ff63f6bf07",
-      "css": "star",
-      "code": 59392,
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59396,
       "src": "fontawesome"
     },
     {
-      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
-      "css": "facebook",
-      "code": 61594,
+      "uid": "0f99ab40ab0b4d64a74f2d0deeb03e42",
+      "css": "videocam",
+      "code": 59392,
       "src": "fontawesome"
     },
     {
@@ -25,27 +25,15 @@
       "src": "fontawesome"
     },
     {
-      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
-      "css": "right-open",
+      "uid": "474656633f79ea2f1dad59ff63f6bf07",
+      "css": "star",
       "code": 59394,
       "src": "fontawesome"
     },
     {
-      "uid": "d870630ff8f81e6de3958ecaeac532f2",
-      "css": "left-open",
-      "code": 59395,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "47a1f80457068fbeab69fdb83d7d0817",
-      "css": "youtube-play",
-      "code": 61802,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "559647a6f430b3aeadbecd67194451dd",
-      "css": "menu",
-      "code": 61641,
+      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
+      "css": "facebook",
+      "code": 61594,
       "src": "fontawesome"
     },
     {
@@ -55,22 +43,34 @@
       "src": "fontawesome"
     },
     {
-      "uid": "5211af474d3a9848f67f945e2ccaf143",
-      "css": "cancel",
-      "code": 59396,
+      "uid": "47a1f80457068fbeab69fdb83d7d0817",
+      "css": "youtube-play",
+      "code": 61802,
       "src": "fontawesome"
     },
     {
-      "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
-      "css": "search",
+      "uid": "4c1ef492f1d2c39a2250ae457cee2a6e",
+      "css": "instagram",
+      "code": 61805,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "559647a6f430b3aeadbecd67194451dd",
+      "css": "menu",
+      "code": 61641,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
       "code": 59397,
       "src": "fontawesome"
-    },
-    {
-      "uid": "0fbfb1cd7a847c88ea4c141d0e1bbdb5",
-      "css": "instagram",
-      "code": 62253,
-      "src": "entypo"
     },
     {
       "uid": "7e092c82e9a758b6e95297007969aac1",
