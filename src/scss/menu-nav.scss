@@ -5,13 +5,15 @@
     display: flex;
     justify-content: center;
     &__item {
-      &:hover {
-        background-color: $color-hover;
-        transition: all ease-in 0.3s;
-      }
-      &:hover .nav-list__link {
-        color: $color-font-white;
-        transition: all ease-in 0.3s;
+      @include for-size(desctop-up) {
+        &:hover {
+          background-color: $color-hover;
+          transition: all ease-in 0.3s;
+        }
+        &:hover .nav-list__link {
+          color: $color-font-white;
+          transition: all ease-in 0.3s;
+        }
       }
       padding-top: calculateRem(15);
       padding-bottom: calculateRem(15);

@@ -249,7 +249,6 @@ export default class View extends EventEmitter {
     };
     this.paintFavoritesBtn(button);
     this.emit("addFavorites", card);
-    return;
   }
   handleClickDeleteFavorites({ target }) {
     if (!(target.dataset.actions === "delete")) {
@@ -266,7 +265,7 @@ export default class View extends EventEmitter {
     this.content.innerHTML = markup;
 
     this.toShowPagination();
-    this.checkFavoritesCard(this.localStorageFavorites);
+    this.checkFavoritesCard(storage.get());
     this.addCardsAtrCategory(this.category);
   }
 
@@ -361,7 +360,7 @@ export default class View extends EventEmitter {
   }
 
   checkFavoritesCard(arr) {
-    if (!arr.length > 0) {
+    if (!arr) {
       return;
     }
 
@@ -372,7 +371,9 @@ export default class View extends EventEmitter {
 
     let button;
     favoritesItems.forEach(el => {
+      el.classList.add('isFavorites')
       button = el.querySelector(".cards-list__item-button");
+      
       this.paintFavoritesBtn(button);
     });
   }
